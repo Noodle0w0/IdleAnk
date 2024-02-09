@@ -16,6 +16,6 @@ public class CameraController : MonoBehaviour
 
     void PlayerFollow()
     {
-        transform.position = new Vector3(player.position.x+1, player.position.y, transform.position.z);
+        transform.position = new Vector3(player.position.x+1, player.position.y+1, transform.position.z);
     }
 }

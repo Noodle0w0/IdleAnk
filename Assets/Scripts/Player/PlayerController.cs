@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator anim;
+    Rigidbody2D rb;
 
-    public float PlayerSpeed = 5f;
+    public float PlayerSpeed;
 
     void Start()
     {
@@ -15,11 +17,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         Run();
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
+
     }
 
     void Run()
     {
         transform.Translate(Vector2.right * PlayerSpeed * Time.deltaTime);
     }
+
+    public void Attack()
+    {
+        anim.SetTrigger("Attack1");
+    }
+
+ 
+
 }
