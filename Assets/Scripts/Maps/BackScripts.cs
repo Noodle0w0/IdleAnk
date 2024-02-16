@@ -20,8 +20,8 @@ public class BackScripts : MonoBehaviour
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D touch)
     {
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 50f);
     }
 }
