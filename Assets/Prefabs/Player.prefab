@@ -203,6 +203,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 1
+  damageText: {fileID: 0}
+  nextDamage: 0
+  AtkGold: 10
+  AtkGoldText: {fileID: 0}
   attackRate: 1
   PlayerSpeed: 4
 --- !u!70 &9156018829694508709
@@ -256,6 +260,7 @@ MonoBehaviour:
   currentHealth: 0
   HealthBar: {fileID: 0}
   ExperianceBar: {fileID: 0}
+  HealthText: {fileID: 0}
 --- !u!114 &5235534456561633886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expImg: {fileID: 0}
+  levelText: {fileID: 0}
+  currentLwl: 0
   currentExp: 0
   expToNextLevel: 100
 --- !u!1 &3148711176757237526

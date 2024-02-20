@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class PlayerController : MonoBehaviour
     private bool shouldMove = true;
 
     public float damage;
+    public Text damageText;
+    public float nextDamage;
+
+    public int AtkGold;
+    public Text AtkGoldText;
+    public int AtkLevel;
+    public Text AtkLevelText;
 
     public float attackRate = 2f;
     float nextAttack = 0;
@@ -25,6 +33,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+
+        nextDamage = damage + 10;
+        damageText.text = damage.ToString() + "->" + nextDamage.ToString();
+        AtkGoldText.text = AtkGold.ToString();
+        AtkLevel = 1;
+        AtkLevelText.text = AtkLevel.ToString();
     }
 
 
@@ -57,13 +72,15 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
+        damageText.text = damage.ToString() + " -> " + nextDamage.ToString();
+        AtkGoldText.text = AtkGold.ToString();
+        AtkLevelText.text = AtkLevel.ToString();
 
     }
     private void FixedUpdate()
     {
         
-       // Run();
+        //Run();
        
         //Movement();
         
@@ -78,12 +95,8 @@ public class PlayerController : MonoBehaviour
 
         foreach(Collider2D enemy in hitememies)
         {
-            enemy.GetComponent<EnemyStats>().TakeDamage(damage);
-          
-           
+            enemy.GetComponent<EnemyStats>().TakeDamage(damage);     
         }
-
-       
     }
 
    
@@ -96,11 +109,7 @@ public class PlayerController : MonoBehaviour
    //     anim.SetFloat("RunSpeed", movementDirector * PlayerSpeed);
    //}
 
-    void Run()
-    {
-       
 
-    }
 
 
     private void OnDrawGizmos()
@@ -115,5 +124,21 @@ public class PlayerController : MonoBehaviour
         
         return hit.collider != null;
     }
+
+
+    public void ButtonPressed()
+    {
+       if(AtkGold <= CoinBank.instance.bank)
+        {
+            CoinBank.instance.Money(-AtkGold);
+            AtkGold += 20;
+            nextDamage += 10;
+            damage += 10;
+            AtkLevel++;
+        }
+        
+    }
+
+  
 
 }
