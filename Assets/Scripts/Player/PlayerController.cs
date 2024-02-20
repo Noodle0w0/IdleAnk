@@ -30,16 +30,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > nextAttack)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                
-               
-
-
-            }
-        }
+        //if (Time.time > nextAttack)
+       // {
+       //     if (Input.GetKeyDown(KeyCode.Q))
+       //     {
+       //     }
+       // }
 
         if (shouldMove)
         {
@@ -89,6 +85,8 @@ public class PlayerController : MonoBehaviour
 
        
     }
+
+   
 
 
    // void Movement()
