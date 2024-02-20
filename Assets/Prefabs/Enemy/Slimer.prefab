@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealt: 200
   timer: 0.75
+  damage: 10
   slimeDeath: {fileID: 7591834129626098395, guid: 3586cdd4fb512be48a76300309c8fc3a, type: 3}
 --- !u!61 &6508002792097277619
 BoxCollider2D:

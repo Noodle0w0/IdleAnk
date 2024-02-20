@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -7,7 +8,7 @@ public class EnemyStats : MonoBehaviour
     public float maxHealt;
     private float currentHealth;
     public float timer;
-    
+    public float damage;
     HitEffect effect;
     public GameObject slimeDeath;
     
@@ -38,9 +39,13 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
+    
+
     IEnumerator BackToNormal()
     {
         yield return new WaitForSeconds(timer);
         GetComponent<SpriteRenderer>().material = effect.original;
     }
+
+
 }
