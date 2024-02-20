@@ -1608,7 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6156863}
+  m_Color: {r: 1, g: 0.89918447, b: 0, a: 0.36078432}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4839,6 +4839,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5235534456561633886, guid: 023fb8cbd02660142a88dff8c31dd0e1, type: 3}
+      propertyPath: expImg
+      value: 
+      objectReference: {fileID: 1133170342}
+    - target: {fileID: 5235534456561633886, guid: 023fb8cbd02660142a88dff8c31dd0e1, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 859413233}
     - target: {fileID: 5660331707079831204, guid: 023fb8cbd02660142a88dff8c31dd0e1, type: 3}
       propertyPath: HealthBar
       value: 

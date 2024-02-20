@@ -9,6 +9,15 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public Image HealthBar;
     public Image ExperianceBar;
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        HealthBar.fillAmount = currentHealth / 100;
+        HealthBar.fillAmount = currentHealth / maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

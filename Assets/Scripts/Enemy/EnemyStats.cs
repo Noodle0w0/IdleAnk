@@ -11,6 +11,7 @@ public class EnemyStats : MonoBehaviour
     public float damage;
     HitEffect effect;
     public GameObject slimeDeath;
+    public float expToGive;
     
   
     void Start()
@@ -36,6 +37,7 @@ public class EnemyStats : MonoBehaviour
             currentHealth = 0;
             Instantiate(slimeDeath, transform.position,transform.rotation);
             Destroy(gameObject);
+            Experiance.instance.expMod(expToGive);
         }
     }
 
