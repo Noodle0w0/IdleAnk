@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public Image HealthBar;
     public Image ExperianceBar;
     public static PlayerHealth instance;
+    public Text HealthText;
+ 
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        HealthText.text = currentHealth.ToString() + maxHealth.ToString();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
         HealthBar.fillAmount = currentHealth / maxHealth;
+        HealthText.text = currentHealth.ToString() + maxHealth.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
