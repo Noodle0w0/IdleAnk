@@ -7,14 +7,11 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
-    Rigidbody2D rb;
-
+    Rigidbody2D rb; 
     public Transform attackPoint;
     public float attackDistance;
     public LayerMask enemyLayers;
-
     private bool shouldMove = true;
-
     public float damage;
     public Text damageText;
     public float nextDamage;
@@ -29,14 +26,13 @@ public class PlayerController : MonoBehaviour
 
     private float movementDirector;
     public float PlayerSpeed;
-    
 
+    public AudioSource attackSound;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-
         nextDamage = damage + 10;
         damageText.text = damage.ToString() + "->" + nextDamage.ToString();
         AtkGoldText.text = AtkGold.ToString();
@@ -70,15 +66,10 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-          
-         
-                Debug.Log("Engel yok, karakter koþmaya devam ediyor.");
+                Debug.Log("Engel yok, karakter koï¿½maya devam ediyor.");
                 shouldMove = true;
-           
-
 
         }
-
 
         damageText.text = damage.ToString() + " -> " + nextDamage.ToString();
         AtkGoldText.text = AtkGold.ToString();
@@ -87,11 +78,8 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
         //Run();
-       
         //Movement();
-        
     }
 
 
@@ -99,14 +87,14 @@ public class PlayerController : MonoBehaviour
     {
         
         anim.SetTrigger("Attack1");
-
-
         Collider2D[] hitememies = Physics2D.OverlapCircleAll(attackPoint.position, attackDistance, enemyLayers);
 
         foreach(Collider2D enemy in hitememies)
         {
             enemy.GetComponent<EnemyStats>().TakeDamage(damage);     
         }
+        
+        attackSound.Play();
     }
 
    
