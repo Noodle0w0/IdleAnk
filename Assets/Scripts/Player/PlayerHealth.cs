@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         mainPanel.SetActive(false);
         currentHealth = maxHealth;
         HealthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
