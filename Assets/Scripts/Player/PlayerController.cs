@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private float movementDirector;
     public float PlayerSpeed;
+    
 
     void Start()
     {
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
         if (EnemyAttackStop())
         {
             Debug.Log("Engel var duruyor.");
+           
             shouldMove = false;
             //nextAttack = Time.time + 1f / attackRate;
             Attack();
@@ -67,8 +70,13 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            Debug.Log("Engel yok, karakter koþmaya devam ediyor.");
-            shouldMove = true;
+          
+         
+                Debug.Log("Engel yok, karakter koþmaya devam ediyor.");
+                shouldMove = true;
+           
+
+
         }
 
 
@@ -89,7 +97,9 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
+        
         anim.SetTrigger("Attack1");
+
 
         Collider2D[] hitememies = Physics2D.OverlapCircleAll(attackPoint.position, attackDistance, enemyLayers);
 
@@ -138,7 +148,5 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-
-  
 
 }
