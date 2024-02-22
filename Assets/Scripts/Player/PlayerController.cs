@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Text damageText;
     public float nextDamage;
 
+    public float gameTime =0f;
+
     public int AtkGold;
     public Text AtkGoldText;
     public int AtkLevel;
@@ -28,12 +30,24 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed;
 
     public AudioSource attackSound;
-    
+
+
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        nextDamage = damage + 10;
+        nextDamage = damage + 2;
         damageText.text = damage.ToString() + "->" + nextDamage.ToString();
         AtkGoldText.text = AtkGold.ToString();
         AtkLevel = 1;
@@ -43,12 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //if (Time.time > nextAttack)
-       // {
-       //     if (Input.GetKeyDown(KeyCode.Q))
-       //     {
-       //     }
-       // }
+      
 
         if (shouldMove)
         {
@@ -74,14 +83,10 @@ public class PlayerController : MonoBehaviour
         damageText.text = damage.ToString() + " -> " + nextDamage.ToString();
         AtkGoldText.text = AtkGold.ToString();
         AtkLevelText.text = AtkLevel.ToString();
+        gameTime += Time.deltaTime;
 
     }
-    private void FixedUpdate()
-    {
-        //Run();
-        //Movement();
-    }
-
+  
 
     public void Attack()
     {
@@ -98,14 +103,6 @@ public class PlayerController : MonoBehaviour
     }
 
    
-
-
-   // void Movement()
-   //{
-   //     movementDirector = Input.GetAxisRaw("Horizontal");
-   //     rb.velocity = new Vector2(movementDirector*PlayerSpeed,rb.velocity.y);
-   //     anim.SetFloat("RunSpeed", movementDirector * PlayerSpeed);
-   //}
 
 
 
@@ -130,9 +127,10 @@ public class PlayerController : MonoBehaviour
         {
             CoinBank.instance.Money(-AtkGold);
             AtkGold += 20;
-            nextDamage += 10;
-            damage += 10;
+            nextDamage += 2;
+            damage += 2;
             AtkLevel++;
+           
         }
         
     }

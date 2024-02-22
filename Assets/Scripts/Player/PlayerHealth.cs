@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth instance;
     public Text HealthText;
     public GameObject mainPanel; // Inspector'dan atayacağın Main Panel
+    public GameObject xbutton;
 
     private void Awake()
     {
@@ -51,6 +52,8 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = 0;
                 Time.timeScale = 0f; // Oyunu durdur
                 mainPanel.SetActive(true); // Main Paneli aktifleştir
+                xbutton.SetActive(false);
+                
             }
         }
     }

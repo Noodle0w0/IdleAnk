@@ -7,10 +7,13 @@ public class MainSceneMenu : MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject xButton;
+    public GameObject deathPanel;
     void Start()
     {
         Time.timeScale = 1f;
         mainPanel.SetActive(false);
+        deathPanel.SetActive(false);
+        
     }
     public void LoadScene(string sceneName)
     {
@@ -21,6 +24,7 @@ public class MainSceneMenu : MonoBehaviour
         Time.timeScale = 0f;
         mainPanel.SetActive(true);
         xButton.SetActive(false);
+
     }
     public void Continue()
     {
