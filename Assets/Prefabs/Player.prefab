@@ -207,8 +207,11 @@ MonoBehaviour:
   nextDamage: 0
   AtkGold: 10
   AtkGoldText: {fileID: 0}
+  AtkLevel: 0
+  AtkLevelText: {fileID: 0}
   attackRate: 1
   PlayerSpeed: 4
+  attackSound: {fileID: 0}
 --- !u!70 &9156018829694508709
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -261,6 +264,8 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   ExperianceBar: {fileID: 0}
   HealthText: {fileID: 0}
+  mainPanel: {fileID: 0}
+  xbutton: {fileID: 0}
 --- !u!114 &5235534456561633886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +310,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.065, y: -0.065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8469052729989868462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
